@@ -30,10 +30,6 @@ paths:
           description: Um candidato
           schema:
             $ref: '#/definitions/Candidato'
-        default:
-          description: unexpected error
-          schema:
-            $ref: '#/definitions/Error'
   '/candidatos/{idCandidato}/propostas':
     get:
       summary: Ao chamar este endpoint devolve a lista de propostas do candidato
@@ -51,10 +47,6 @@ paths:
           description: Uma lista das propostas
           schema:
             $ref: '#/definitions/Propostas'
-        default:
-          description: unexpected error
-          schema:
-            $ref: '#/definitions/Error'
 definitions:
   Candidato:
     required:
@@ -71,8 +63,6 @@ definitions:
       email:
         type: string
       universidade:
-        type: string
-      tag:
         type: string
   Propostas:
     type: array
@@ -93,16 +83,4 @@ definitions:
       posicao:
         type: string
       dataLimite:
-        type: string
-      tag:
-        type: string
-  Error:
-    required:
-      - code
-      - message
-    properties:
-      code:
-        type: integer
-        format: int32
-      message:
         type: string
